@@ -37,7 +37,7 @@ ROUND_DURATION = 15     # длительность раунда в секунд�
 # Путь к базе данных (Изменено под Render: база создается прямо в корне)
 DB_PATH = 'casino.db'
 
-TOKEN = '8916428142:AAG4e5FybBURNYsfdKhZbWFZWnerd8UFbAQ'
+TOKEN = '8916428142:AAEzltLgSAZSuqLEVitNmbcOMqRhU8WKMfQ'
 ADMIN_ID = 7463968638
 CURRENCY = 'VIR'
 GIF_URL = 'https://t.me/CHAT_VIRUSA/42830'
