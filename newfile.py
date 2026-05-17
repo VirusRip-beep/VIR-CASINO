@@ -936,5 +936,6 @@ def handle_mines_callbacks(call: types.CallbackQuery):
         db_delete_mine_game(user_id)
 
 if __name__ == '__main__':
-    init_db() 
-    bot.infinity_polling(skip_pending=True)
+    bot.remove_webhook()  # <--- ВСТАВИТЬ СЮДА
+    bot.polling(none_stop=True)
+
