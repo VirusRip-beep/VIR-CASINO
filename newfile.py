@@ -3,8 +3,29 @@ import random
 import re
 import sqlite3
 import os
+import threading  # ДОБАВЛЕНО ДЛЯ RENDER
+from flask import Flask  # ДОБАВЛЕНО ДЛЯ RENDER
 from datetime import datetime, timedelta, timezone
 from telebot import TeleBot, types
+
+# --- НАСТРОЙКА ВЕБ-СЕРВЕРА ДЛЯ RENDER (ЖИВУЧЕСТЬ БОТА) ---
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Бот казино VIR успешно запущен и работает!"
+
+def run():
+    # Слушаем порт 8080, который требует Render
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = threading.Thread(target=run)
+    t.start()
+
+# Запускаем фоновый сервер-пустышку
+keep_alive()
+# --------------------------------------------------------
 
 # --- Глобальные переменные (Изолированы по чатам) ---
 is_spinning = {}        # chat_id -> флаг, крутится ли рулетка
